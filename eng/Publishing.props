@@ -1,0 +1,8 @@
+<Project>
+  <Target Name="SetAzureDevOpsVariableForBuiltPackages"
+          Condition="'$(ContinuousIntegrationBuild)' == 'true'"
+          AfterTargets="Publish">
+    <Message Condition="'@(PackagesToPublish)' == ''" Importance="High" Text="##vso[task.setvariable variable=_enableNugetValidation]false" />
+  </Target>
+
+</Project>

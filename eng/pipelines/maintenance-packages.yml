@@ -25,6 +25,8 @@ variables:
     value: '/p:Test=false'
   - name: _BuildJobDisplayName
     value: 'Build, Sign and Publish'
+  - name: _enableNugetValidation
+    value: true
 
 resources:
   containers:
@@ -123,3 +125,4 @@ stages:
   - template: /eng/common/templates/post-build/post-build.yml
     parameters:
       publishAssetsImmediately: true
+      enableNugetValidation: ${{ variables._enableNugetValidation }}
