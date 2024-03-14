@@ -25,8 +25,6 @@ variables:
     value: '/p:Test=false'
   - name: _BuildJobDisplayName
     value: 'Build, Sign and Publish'
-  - name: _enableNugetValidation
-    value: true
 
 resources:
   containers:
@@ -77,6 +75,7 @@ stages:
             $(_AdditionalBuildArgs)
             $(_InternalBuildArgs)
           displayName: $(_BuildJobDisplayName)
+          name: cibuild
 
       - ${{ if eq(variables._RunAsPublic, True) }}:
         - job: build_linux
@@ -125,4 +124,4 @@ stages:
   - template: /eng/common/templates/post-build/post-build.yml
     parameters:
       publishAssetsImmediately: true
-      enableNugetValidation: ${{ variables._enableNugetValidation }}
+      enableNugetValidation: $[stageDependencies.build.build_windows.outputs['cibuild._enableNugetValidation']]
