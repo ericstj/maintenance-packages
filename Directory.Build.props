@@ -17,7 +17,8 @@
     <BeforeTargetFrameworkInferenceTargets>$(RepositoryEngineeringDir)BeforeTargetFrameworkInference.targets</BeforeTargetFrameworkInferenceTargets>
   </PropertyGroup>
 
+  <!-- External native package produced by SqlClient team -->
   <ItemGroup>
-    <PackageVersion Include="runtime.native.System.Data.SqlClient.sni" Version="4.4.0" />
+    <PackageVersion Include="runtime.native.System.Data.SqlClient.sni" Version="4.7.0" />
   </ItemGroup>
 </Project>

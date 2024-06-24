@@ -13,12 +13,18 @@
     <PackageVersion Include="Microsoft.DotNet.Build.Tasks.TargetFramework" Version="$(MicrosoftDotNetBuildTasksTargetFrameworkVersion)" />
   </ItemGroup>
 
-  <!-- These versions are not updated by dependency flow as they aren't produced live anymore. -->
+
   <ItemGroup>
+    <!-- These versions are not updated by dependency flow as they aren't produced live anymore. -->
+    <PackageVersion Include="Microsoft.Win32.Registry" Version="5.0.0" />
     <PackageVersion Include="System.Reflection.Emit" Version="4.7.0" />
     <PackageVersion Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
-    <PackageVersion Include="System.Text.Encoding.CodePages" Version="8.0.0" />
+    <PackageVersion Include="System.Security.Principal.Windows" Version="5.0.0" />
     <PackageVersion Include="System.ValueTuple" Version="4.5.0" />
+
+    <!-- These are produced live and should be updated regularly to the latest LTS -->
+    <PackageVersion Include="System.Diagnostics.DiagnosticSource" Version="8.0.1" />
+    <PackageVersion Include="System.Text.Encoding.CodePages" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>

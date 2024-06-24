@@ -215,7 +215,11 @@ namespace System.Data.SqlClient
             }
         }
 
-        public void Rollback(string transactionName)
+        public
+#if NET
+        new
+#endif
+        void Rollback(string transactionName)
         {
             Exception e = null;
             Guid operationId = s_diagnosticListener.WriteTransactionRollbackBefore(_isolationLevel, _connection, transactionName);
@@ -253,7 +257,11 @@ namespace System.Data.SqlClient
             }
         }
 
-        public void Save(string savePointName)
+        public
+#if NET
+        new
+#endif
+        void Save(string savePointName)
         {
             ZombieCheck();
 
@@ -279,7 +287,7 @@ namespace System.Data.SqlClient
             // For Yukon, we have to defer "zombification" until
             //                 we get past the users' next rollback, else we'll
             //                 throw an exception there that is a breaking change.
-            //                 Of course, if the connection is already closed, 
+            //                 Of course, if the connection is already closed,
             //                 then we're free to zombify...
             SqlInternalConnection internalConnection = (_connection.InnerConnection as SqlInternalConnection);
             if (internalConnection == null || _isFromAPI)
