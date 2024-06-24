@@ -4,7 +4,7 @@
     <ProjectGuid>{529B187A-DE4F-4F4D-9FBB-D3D416FDB683}</ProjectGuid>
     <RootNamespace>DPStressHarness</RootNamespace>
     <OutputType>Exe</OutputType>
-    <NoWarn>3021</NoWarn>
+    <NoWarn>$(NoWarn);3021</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\IMonitorLoader\IMonitorLoader.csproj" />
